@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/toolbar_action1"
+        android:title="Action"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/toolbar_action2"
+        android:title="Action2"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/toolbar_action3"
+        android:title="Action3"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/toolbar_action4"
+        android:title="Action4"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/toolbar_action5"
+        android:title="Action5"
+        app:showAsAction="never" />
+
+</menu>
