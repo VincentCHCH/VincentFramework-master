@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ButterKnifeDemo-master.iml" filepath="$PROJECT_DIR$/ButterKnifeDemo-master.iml" />
+      <module fileurl="file://$PROJECT_DIR$/VincentFramework-master.iml" filepath="$PROJECT_DIR$/VincentFramework-master.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
