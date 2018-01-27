@@ -37,6 +37,7 @@ public class WeatherActivity extends BaseActivity<WeatherPresenter> implements W
     TextView textView8;
     @BindView(R.id.textView9)
     TextView textView9;
+    
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
