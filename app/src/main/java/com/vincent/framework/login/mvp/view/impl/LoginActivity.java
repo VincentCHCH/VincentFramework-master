@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.vincent.framework.R;
 import com.vincent.framework.base.BaseActivity;
+import com.vincent.framework.base.BasePresenter;
 import com.vincent.framework.login.mvp.presenter.LoginPresenter;
 import com.vincent.framework.login.mvp.view.ILoginView;
 import com.vincent.framework.utils.DialogUtils;
@@ -58,6 +59,11 @@ public class LoginActivity extends BaseActivity implements ILoginView {
         loginPresenter = new LoginPresenter(this);
 
         dialog = DialogUtils.createLoadingDialog(this, "登陆中...");
+    }
+
+    @Override
+    protected BasePresenter createPresenter() {
+        return null;
     }
 
     @Override
