@@ -4,7 +4,9 @@ package com.vincent.framework.model;
 import android.text.TextUtils;
 
 import com.vincent.framework.api.ApiManager;
+import com.vincent.framework.base.BaseModel;
 import com.vincent.framework.bean.WeatherData;
+import com.vincent.framework.presrent.WeatherPresenter;
 
 import java.net.ConnectException;
 import java.net.SocketTimeoutException;
@@ -18,18 +20,18 @@ import rx.schedulers.Schedulers;
 /**
  * Created by lidong on 2016/3/2.
  */
-public class WeatherModelImp implements WeatherModel {
+public class WeatherModelImp extends BaseModel<WeatherPresenter> implements WeatherModel {
 
     private WeatherOnListener mWeatherOnListener;
 
 
-    public WeatherModelImp(WeatherOnListener mWeatherOnListener) {
-        this.mWeatherOnListener = mWeatherOnListener;
+    public WeatherModelImp(WeatherPresenter presenter) {
+        super(presenter);
     }
 
     @Override
     public Subscription getWeatherData(String format, String city) {
-        Observable<WeatherData> request = ApiManager.getWeatherData(format, city).cache();
+        Observable<WeatherData> request = ApiManager.getWeatherData(format, city);
 
         Subscription sub = request.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -52,12 +54,12 @@ public class WeatherModelImp implements WeatherModel {
 
                     @Override
                     public void onError(Throwable e) {
-                        mWeatherOnListener.onFailure(e);
+                        mPresenter.onFailure(e);
                     }
 
                     @Override
                     public void onNext(WeatherData weatherData) {
-                        mWeatherOnListener.onSuccess(weatherData);
+                        mPresenter.onSuccess(weatherData);
                     }
                 });
         return sub;

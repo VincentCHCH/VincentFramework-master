@@ -13,7 +13,6 @@ import com.vincent.framework.utils.LoadingUIHelper;
 import com.vincent.framework.view.WeatherView;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class WeatherActivity extends BaseActivity<WeatherPresenter> implements WeatherView {
@@ -41,21 +40,11 @@ public class WeatherActivity extends BaseActivity<WeatherPresenter> implements W
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ButterKnife.bind(this);
-        mPresenter = new WeatherPresenter(this);
-//        ButterKnife.bind(this);
-//        btn = (Button) findViewById(R.id.button2);
-//        btn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                mWeatherPresenter.getWeatherData("2", "苏州");
-//            }
-//        });
     }
 
     @OnClick(R.id.button2)
     public void clickButton2() {
-        mPresenter.getWeatherData("2", "苏州");
+        getPresenter().getWeatherData("2", "苏州");
     }
 
     @Override
@@ -88,13 +77,6 @@ public class WeatherActivity extends BaseActivity<WeatherPresenter> implements W
 //        textView9.setText("旅游指数：" + weatherData.getResult().getToday().getTravel_index());
     }
 
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        mPresenter.detachView();
-    }
-
     @Override
     protected int getLayout() {
         return R.layout.content_weather;
@@ -104,4 +86,10 @@ public class WeatherActivity extends BaseActivity<WeatherPresenter> implements W
     protected void initEventAndData() {
 
     }
+
+    @Override
+    protected WeatherPresenter createPresenter() {
+        return new WeatherPresenter(this);
+    }
+
 }

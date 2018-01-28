@@ -1,16 +1,12 @@
 package com.vincent.framework.base;
 
-import com.vincent.framework.base.IBaseModel;
-import com.vincent.framework.base.IBaseView;
-import com.vincent.framework.base.IPresenter;
-
 import rx.Subscription;
 import rx.subscriptions.CompositeSubscription;
 
 /**
  * Created by lidong on 16/9/10.
  */
-public class BasePresenter<V extends IBaseView, M extends IBaseModel> implements IPresenter {
+public class BasePresenter<V extends IBaseView, M extends IBaseModel> implements IPresenter<IBaseView> {
 
     protected V mView;
     protected M mModel;
@@ -40,5 +36,13 @@ public class BasePresenter<V extends IBaseView, M extends IBaseModel> implements
     @Override
     public IBaseView getAttacchView() {
         return null;
+    }
+
+    public void onSuccess(Object s) {
+
+    }
+
+    public void onFailure(Throwable e) {
+
     }
 }

@@ -28,9 +28,7 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
         setContentView(getLayout());
         ButterKnife.bind(this);
         mContext = this;
-//        setupActivityComponent(App.getAppComponent(),new ActivityModule(this));
-//        if (mPresenter != null)
-//            mPresenter.attachView(this);
+        mPresenter = createPresenter();
         initEventAndData();
         AppManager.getAppManager().addActivity(this);
     }
@@ -64,4 +62,13 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
     protected abstract int getLayout();
 
     protected abstract void initEventAndData();
+
+    protected abstract P createPresenter();
+
+    /**
+     * 获取presenter
+     */
+    protected  P getPresenter(){
+        return mPresenter;
+    }
 }

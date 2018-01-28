@@ -8,7 +8,7 @@ import com.vincent.framework.model.WeatherModel;
 import com.vincent.framework.model.WeatherModelImp;
 import com.vincent.framework.view.WeatherView;
 
-public class WeatherPresenter extends BasePresenter <WeatherView, WeatherModel> implements WeatherModelImp.WeatherOnListener {
+public class WeatherPresenter extends BasePresenter<WeatherView, WeatherModel> implements WeatherModelImp.WeatherOnListener {
 
     public WeatherPresenter(WeatherView view) {
         mModel = new WeatherModelImp(this);

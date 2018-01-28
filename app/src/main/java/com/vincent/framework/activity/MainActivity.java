@@ -26,6 +26,7 @@ import android.widget.Toast;
 import com.vincent.framework.R;
 import com.vincent.framework.adapter.MyFragmentPagerAdapter;
 import com.vincent.framework.base.BaseActivity;
+import com.vincent.framework.base.BasePresenter;
 import com.vincent.framework.utils.DensityUtil;
 import com.vincent.framework.utils.StatusBarUtil;
 
@@ -115,6 +116,11 @@ public class MainActivity extends BaseActivity {
             //添加标签
             tabLayoutTwo.addTab(tabLayoutTwo.newTab().setCustomView(view));
         }
+    }
+
+    @Override
+    protected BasePresenter createPresenter() {
+        return null;
     }
 
     @Override
